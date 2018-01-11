@@ -1,18 +1,36 @@
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .med-nav{
+    align-items: center;
     border: 1px solid black;
     color: black;
+    display: flex;
     height: 5vh;
-    width: 15vw;
+    justify-content: center;
+    width: 25vw;
+}
+.med-nav:hover {
+    background-color: #ff7800;
+    color: white;
 }
 
 .med-page{
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     height: 90vh;
 }
 
 .question{
+    align-items: center;
     background-color: #0085f5;
+    border: 2px solid black;
+    display: flex;
+    height: 5vh;
+    justify-content: center;
+    width: 100%;
 }
