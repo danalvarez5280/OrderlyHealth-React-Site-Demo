@@ -1,0 +1,17 @@
+.med-nav{
+    border: 1px solid black;
+    color: black;
+    height: 5vh;
+}
+
+.med-page{
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 90vh;
+}
+
+.question{
+    background-color: #0085f5;
+}
