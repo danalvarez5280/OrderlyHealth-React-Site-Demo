@@ -7,9 +7,11 @@ class PaperRx extends Component {
   constructor() {
     super();
     this.state = {
-      medications: [{medNum: 1}],
+      medications: [{}],
+      medCount: 1,
     }
     this.addMed = this.addMed.bind(this);
+    this.saveMed = this.saveMed.bind(this);
   }
   
   medsDisplay(){
@@ -20,17 +22,18 @@ class PaperRx extends Component {
   }
 
   addMed() {
-    const meds = [...this.state.medications, 'thing']
+    const meds = [...this.state.medications]
     this.setState({
       medications: meds
     })
   }
 
   saveMed(obj) {
-    console.log('submission obj', obj)
-    // const medUpdate = this.state.medications.find(elem => {
-    //   obj.medNum === elem.medNum
-    // })
+    const meds = [...this.state.medications, obj];
+    this.setState({
+      medications: meds
+    })
+    
   }
   render() {
     const medPages = this.medsDisplay()
