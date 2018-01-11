@@ -1,40 +1,39 @@
 import React, { Component } from "react";
 
+import "./PrescriptionPage.css";
 
 class PrescriptionPage extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
+      medicationName: props.medicationName,
+      dose: props.dose,
+      quantity: props.quantity,
+      supply: props.supply,
+      refills: props.refills,
+
 
     }
+    this.grabInfo = this.grabInfo.bind(this);
+  }
+  grabInfo(e){
+    this.setState({ [e.target.title]: e.target.value });
   }
   render() {
-    return (
-      <div className="med-info">
+    console.log(this.state)
+    return <div className="med-info">
         <h4>Medication Information</h4>
         <div className="medicaion-info">
-          <input
-            type="text"
-            className="full-input"
-            placeholder="Medication Name"
-          />
-          <input type="text" className="half-input" placeholder="Dose" />
-          <input type="text" className="half-input" placeholder="Quantity" />
-          <input type="text" className="half-input" placeholder="Supply" />
-          <input type="text" className="half-input" placeholder="Refills" />
-          <input
-            type="text"
-            className="full-input"
-            placeholder="Prescribing Doctor's Name"
-          />
-          <input
-            type="text"
-            className="full-input"
-            placeholder="Prescribing Doctor's Phone Number"
-          />
+          <input title="medicationName" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Medication Name" value={this.state.medicationName} />
+          <input title="dose" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Dose" />
+          <input title="quantity" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Quantity" />
+          <input title="supply" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Supply" />
+          <input title="refills" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Refills" />
+          <input title="docName" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Prescribing Doctor's Name" />
+          <input title="docNumber" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Prescribing Doctor's Phone Number" />
+          <div className="save-med-btn" onClick={() => console.log('submission', this.state)}>Save</div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 

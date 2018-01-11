@@ -10,25 +10,15 @@
     margin-left: 25px;
 }
 
-.full-input {
-    flex: 2;
-    width: 75%;
-}
-
-.half-input {
-    flex: 1;
-    margin-right: 5%;
-    width: 35%;
-}
-
-.medication-info {
+.med-info {
+    align-items: center;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .new-order {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 55%;
 }

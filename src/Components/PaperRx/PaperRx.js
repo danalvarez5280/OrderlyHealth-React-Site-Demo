@@ -7,21 +7,19 @@ class PaperRx extends Component {
   constructor() {
     super();
     this.state = {
-      medications: ['thing'],
+      medications: [{}],
     }
     this.addMed = this.addMed.bind(this);
   }
-
+  
   medsDisplay(){
-    console.log('medication number', this.state.medications)
     const medicationForms = this.state.medications.map(elem => {
-      return <PrescriptionPage />
+      return <PrescriptionPage info={elem}/>
     })
     return medicationForms;
   }
 
   addMed() {
-    console.log('current med counter', this.state)
     const meds = [...this.state.medications, 'thing']
     this.setState({
       medications: meds
@@ -34,7 +32,9 @@ class PaperRx extends Component {
           <div className="cancel-button">CANCEL</div>
           <h3>NEW ORDER</h3>
         </div>
-        {medPages}
+        <div>
+          {medPages}
+        </div>
         <div className="add-meds" onClick={() => this.addMed()}>Add another medication</div>
       </div>;
   }
