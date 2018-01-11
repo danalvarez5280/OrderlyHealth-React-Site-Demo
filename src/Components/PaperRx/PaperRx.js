@@ -7,14 +7,14 @@ class PaperRx extends Component {
   constructor() {
     super();
     this.state = {
-      medications: [{}],
+      medications: [{medNum: 1}],
     }
     this.addMed = this.addMed.bind(this);
   }
   
   medsDisplay(){
-    const medicationForms = this.state.medications.map(elem => {
-      return <PrescriptionPage info={elem}/>
+    const medicationForms = this.state.medications.map((elem, index) => {
+      return <PrescriptionPage key={index} info={elem} medNum={index} saveMed={this.saveMed}/>
     })
     return medicationForms;
   }
@@ -24,6 +24,13 @@ class PaperRx extends Component {
     this.setState({
       medications: meds
     })
+  }
+
+  saveMed(obj) {
+    console.log('submission obj', obj)
+    // const medUpdate = this.state.medications.find(elem => {
+    //   obj.medNum === elem.medNum
+    // })
   }
   render() {
     const medPages = this.medsDisplay()

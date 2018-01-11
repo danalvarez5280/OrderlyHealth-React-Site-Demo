@@ -11,7 +11,9 @@ class PrescriptionPage extends Component {
       quantity: props.quantity,
       supply: props.supply,
       refills: props.refills,
-
+      docName: props.docName,
+      docNumber: props.docNumber,
+      medNum: props.medNum
 
     }
     this.grabInfo = this.grabInfo.bind(this);
@@ -19,8 +21,11 @@ class PrescriptionPage extends Component {
   grabInfo(e){
     this.setState({ [e.target.title]: e.target.value });
   }
+
+  saveInfo() {
+    this.props.saveMed(this.state)
+  }
   render() {
-    console.log(this.state)
     return <div className="med-info">
         <h4>Medication Information</h4>
         <div className="medicaion-info">
@@ -31,7 +36,7 @@ class PrescriptionPage extends Component {
           <input title="refills" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Refills" />
           <input title="docName" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Prescribing Doctor's Name" />
           <input title="docNumber" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Prescribing Doctor's Phone Number" />
-          <div className="save-med-btn" onClick={() => console.log('submission', this.state)}>Save</div>
+          <div className="save-med-btn" onClick={() => this.saveInfo()}>Save</div>
         </div>
       </div>;
   }
