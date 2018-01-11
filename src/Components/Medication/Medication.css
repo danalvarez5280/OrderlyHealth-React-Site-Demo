@@ -2,10 +2,11 @@
     border: 1px solid black;
     color: black;
     height: 5vh;
+    width: 15vw;
 }
 
 .med-page{
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

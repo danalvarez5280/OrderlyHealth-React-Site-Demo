@@ -6,7 +6,7 @@ import "./Medication.css";
 class Medication extends Component {
   render() {
     return <div className="med-page">
-        <div className="question">What is your prescription?</div>
+        <div className="question med-nav">What is your prescription?</div>
         <NavLink to="/doctors" className="med-nav">
           At the Pharmacy
         </NavLink>
