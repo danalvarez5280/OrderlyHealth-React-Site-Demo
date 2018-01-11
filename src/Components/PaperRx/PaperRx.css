@@ -1,0 +1,34 @@
+.add-meds {
+    background-color: blue;
+}
+
+.add-meds:hover {
+    cursor: pointer;
+}
+
+.cancel-button {
+    margin-left: 25px;
+}
+
+.full-input {
+    flex: 2;
+    width: 75%;
+}
+
+.half-input {
+    flex: 1;
+    margin-right: 5%;
+    width: 35%;
+}
+
+.medication-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.new-order {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 55%;
+}

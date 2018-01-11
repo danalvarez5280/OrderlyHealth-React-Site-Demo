@@ -8,18 +8,18 @@ class Medication extends Component {
     return <div className="med-page">
         <div className="question">Where is your prescription?</div>
         <div className="links">
-            <NavLink to="/doctors" className="med-nav">
-                At the Pharmacy
-            </NavLink>
-            <NavLink to="/doctors" className="med-nav">
-                I have a paper prescription
-            </NavLink>
-            <NavLink to="/doctors" className="med-nav">
-                My Doctors will send my Rx
-            </NavLink>
-            <NavLink to="/doctors" className="med-nav">
-                I want to reorder through Orderly
-            </NavLink>
+          <NavLink to="/medication/pharmacy" className="med-nav">
+            At the Pharmacy
+          </NavLink>
+          <NavLink to="/medication/paperrx" className="med-nav">
+            I have a paper prescription
+          </NavLink>
+          <NavLink to="/medication/doctorrx" className="med-nav">
+            My Doctors will send my Rx
+          </NavLink>
+          <NavLink to="/medication/reorder" className="med-nav">
+            I want to reorder through Orderly
+          </NavLink>
         </div>
       </div>;
   }
