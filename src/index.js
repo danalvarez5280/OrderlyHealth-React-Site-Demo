@@ -1,15 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import { BrowserRouter } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import registerServiceWorker from "./registerServiceWorker";
+import rootReducer from "./Reducers";
+import App from "./App";
+import "./index.css";
+import createHistory from "history/createBrowserHistory";
+import { Router } from "react-router";
+import { routerMiddleware } from "react-router-redux";
 
-const router = (
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+const devTools =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const history = createHistory();
+const middleware = routerMiddleware(history);
+const store = createStore(
+  rootReducer,
+  devTools,
+  applyMiddleware(thunk, middleware)
 );
 
-ReactDOM.render(router, document.getElementById('root'));
+const router = (
+  <Provider store={store}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </Provider>
+);
+
+ReactDOM.render(router, document.getElementById("root"));
+
 registerServiceWorker();
+
