@@ -7,7 +7,7 @@ import PrescriptionPage from '../PrescriptionPage/PrescriptionPage';
 class PaperRx extends Component {
   constructor() {
     super();
-    this.state = { 
+    this.state = {
       medications: [{}]
     };
     this.addMed = this.addMed.bind(this);
@@ -15,7 +15,13 @@ class PaperRx extends Component {
   }
   
   medsDisplay(){
-    return this.state.medications.map((elem, index) => {
+    const meds = this.state.medications;
+    if(meds.length > 1) {
+      return meds.map((elem, index) => {
+        return <PrescriptionPage key={index} medNum={index} currentMeds={this.state.medications[0]} saveMed={this.saveMed} />;
+      })
+    }
+    return meds.map((elem, index) => {
       return <PrescriptionPage key={index} medNum={index} saveMed={this.saveMed} />;
     })
   }
