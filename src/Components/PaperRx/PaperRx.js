@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MainContainer from "../../Containers/MainContainer";
 
 import "./PaperRx.css";
 import PrescriptionPage from '../PrescriptionPage/PrescriptionPage';
@@ -35,7 +36,7 @@ class PaperRx extends Component {
   }
 
   render() {
-    console.log('current state', this.state)
+    console.log('current state', this.props.medications)
     const medPages = this.medsDisplay();
     return <div className="med-info">
         <div className="new-order">
@@ -50,4 +51,4 @@ class PaperRx extends Component {
   }
 }
 
-export default PaperRx;
+export default MainContainer(PaperRx);

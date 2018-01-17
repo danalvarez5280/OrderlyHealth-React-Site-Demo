@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
@@ -7,6 +6,7 @@ import Medication from './Components/Medication/Medication';
 import ChatPage from './Components/ChatPage/ChatPage';
 import PharmacyPage from './Components/PharmacyPage/PharmacyPage';
 import Transfer from './Components/Transfer/Transfer';
+import Reorder from './Components/Reorder/Reorder';
 import PaperRx from './Components/PaperRx/PaperRx';
 import { Route, NavLink, Link } from "react-router-dom";
 
@@ -18,7 +18,7 @@ class App extends Component {
         <Route exact path="/medication" component={Medication} />
         <Route exact path="/medication/paperrx" component={PaperRx} />
         <Route exact path="/medication/pharmacy" component={Transfer} />
-
+        <Route exact path="/medication/reorder" component={Reorder} />
         <Route exact path="/chat" component={ChatPage} />
 
       </div>;
