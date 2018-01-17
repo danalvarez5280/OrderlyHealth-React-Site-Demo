@@ -6,15 +6,14 @@ class PrescriptionPage extends Component {
   constructor(props) {
     super();
     this.state = {
-      medicationName: props.medicationName,
-      dose: props.dose,
-      quantity: props.quantity,
-      supply: props.supply,
-      refills: props.refills,
-      docName: props.docName,
-      docNumber: props.docNumber,
+      medicationName: '',
+      dose: '',
+      quantity: '',
+      supply: '',
+      refills: '',
+      docName: '',
+      docNumber: '',
       medNum: props.medNum
-
     }
     this.grabInfo = this.grabInfo.bind(this);
   }
@@ -23,7 +22,7 @@ class PrescriptionPage extends Component {
   }
 
   saveInfo() {
-    this.props.saveMed(this.state)
+    this.props.saveMed(this.state);
   }
   render() {
     return <div className="med-info">

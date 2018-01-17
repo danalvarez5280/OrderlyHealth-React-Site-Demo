@@ -6,37 +6,37 @@ import PrescriptionPage from '../PrescriptionPage/PrescriptionPage';
 class PaperRx extends Component {
   constructor() {
     super();
-    this.state = {
-      medications: [{}],
-      medCount: 1,
-    }
+    this.state = { 
+      medications: [{}]
+    };
     this.addMed = this.addMed.bind(this);
     this.saveMed = this.saveMed.bind(this);
   }
   
   medsDisplay(){
-    const medicationForms = this.state.medications.map((elem, index) => {
-      return <PrescriptionPage key={index} info={elem} medNum={index} saveMed={this.saveMed}/>
+    return this.state.medications.map((elem, index) => {
+      return <PrescriptionPage key={index} medNum={index} saveMed={this.saveMed} />;
     })
-    return medicationForms;
   }
 
-  addMed() {
-    const meds = [...this.state.medications]
-    this.setState({
-      medications: meds
-    })
+  addMed(obj) {
+    console.log('state', this.state)
+    const meds = [...this.state.medications, obj];
+    this.setState({ medications: meds });
+    
   }
 
   saveMed(obj) {
-    const meds = [...this.state.medications, obj];
+    const meds = this.state.medications;
+    meds.splice(obj.medNum, 1, obj);
     this.setState({
       medications: meds
     })
-    
   }
+
   render() {
-    const medPages = this.medsDisplay()
+    console.log('current state', this.state)
+    const medPages = this.medsDisplay();
     return <div className="med-info">
         <div className="new-order">
           <div className="cancel-button">CANCEL</div>
