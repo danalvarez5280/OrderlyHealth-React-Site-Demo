@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import MainContainer from "../../Containers/MainContainer";
 import "./PrescriptionPage.css";
 
 class PrescriptionPage extends Component {
@@ -22,6 +22,7 @@ class PrescriptionPage extends Component {
   }
 
   saveInfo() {
+    this.props.addMed(this.state)
     this.props.saveMed(this.state);
   }
   render() {
@@ -41,4 +42,7 @@ class PrescriptionPage extends Component {
   }
 }
 
-export default PrescriptionPage;
+export default MainContainer(PrescriptionPage);
+
+
+//  this.state = { medicationName: "", dose: "", quantity: "", supply: "", refills: "", docName: "", docNumber: "", medNum: props.medNum };

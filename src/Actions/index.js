@@ -1,6 +1,6 @@
-export const addMED = (medInfo) => {
+export const addMed = (medication) => {
   return {
     type: "ADD_MED",
-    medInfo
+    medication
   };
 };
