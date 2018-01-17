@@ -23,7 +23,8 @@ class PrescriptionPage extends Component {
     const currentDoc = this.state.currentMeds;
     this.setState({
       docName: currentDoc.docName,
-      docNumber: currentDoc.docNumber
+      docNumber: currentDoc.docNumber,
+      usePreviousDocInfo: true
     })
   }
 
@@ -43,12 +44,19 @@ class PrescriptionPage extends Component {
     else{
       this.setState({
         docName: '',
-        docNumber: ''
+        docNumber: '',
+        usePreviousDocInfo: false
       })
     }
   }
 
+  toggleText() {
+    return this.state.usePreviousDocInfo ? <div>Yes</div> : <div>No</div>;
+
+  }
+
   render() {
+    const previousDocText = this.toggleText();
     return <div className="med-info">
         <h4>Medication Information</h4>
         <div className="medicaion-info">
@@ -59,6 +67,7 @@ class PrescriptionPage extends Component {
           <input title="refills" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Refills" />
           {this.state.medNum > 0 && <div onClick={() => this.toggleDocInfo()}>
               Use Previous Doc Info?
+              {previousDocText}
             </div>}
           <input title="docName" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Prescribing Doctor's Name" value={this.state.docName} />
           <input title="docNumber" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Prescribing Doctor's Phone Number" value={this.state.docNumber} />
