@@ -5,10 +5,16 @@ export default class ChatPage extends Component {
   constructor() {
     super();
     this.state = {
-      messages: [{user: 'louie', text: 'Please ask me question.'}],
+      messages: [{name: 'louie', text: 'Please ask me question.'}],
       text: '',
     }
   }
+
+  grabInfo(e) {
+    this.setState({
+      [e.target.title]: e.target.value
+    })
+  };
 
   displayMessages() {
     const currentConvo = this.state.messages;
@@ -38,14 +44,8 @@ export default class ChatPage extends Component {
     )
   };
 
-  setMessage(str) {
-    this.setState({
-      text: str
-    })
-  };
-
-  submitMessage(obj) {
-    const newMessage = obj;
+  submitMessage() {
+    const newMessage = {name: 'user', text: this.state.text}
     const conversation = this.state.messages;
 
     conversation.push(newMessage);
@@ -58,12 +58,25 @@ export default class ChatPage extends Component {
 
   render() {
     const messageBoard = this.displayMessages();
-    return (
-      <div>
-        <input 
-          placeHolder='Ask Louie a Question' 
-          value={this.state.text}
-          onChange={(text) => this.setMessage(text)}/>
+    console.log('text', this.state.text)
+    return <div>
+      <div className='message-board'>
+        {messageBoard}
       </div>
-    )}
+        <form>
+          <input 
+            className="text-field" 
+            onChange={e => this.grabInfo(e)}
+            placeholder="Ask Louie A Question" 
+            title="text" 
+            type="text"
+            value={this.state.text} />
+          <input 
+            className="input-field form-button" 
+            onClick={() => this.submitMessage()} 
+            type="button" 
+            value="Submit" />
+        </form>
+      </div>;
+  }
 };
