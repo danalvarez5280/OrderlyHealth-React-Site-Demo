@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import MainContainer from '../../Containers/MainContainer';
 import "./ConfirmInfoPage.css";
 
@@ -8,8 +9,8 @@ class ConfirmInfoPage extends Component {
     this.state = {
       name: '',
       pricing: '',
-      gender: ''
-
+      gender: '',
+      orderSubmitted: props.orderSubmitted
     };
     this.grabInfo = this.grabInfo.bind(this);
   }
@@ -21,15 +22,13 @@ class ConfirmInfoPage extends Component {
     this.props.saveMed(this.state);
   }
 
-  toggleGender(str, e) {
-    // e.target.classList.toggle("selected");
+  toggleGender(str) {
     this.setState({
       gender: str
     })
   }
 
   togglePricing(e) {
-    console.log(e.target.classList.toggle('slected'))
     e.target.classList.toggle('selected')
     this.setState({
       pricing: e.target.title
@@ -42,12 +41,19 @@ class ConfirmInfoPage extends Component {
             this.setState({textAlerts: false }) : this.setState({ textAlerts: true }); 
   }
 
-  submitOrder() {
+  gatherSubmit(obj) {
     console.log('stored meds', this.props)
+    this.props.submit(obj)
+    this.setState({
+      orderSubmitted: true
+    })
   }
 
 
   render() {
+    if(this.state.orderSubmitted) {
+      return <Redirect to='/' />
+    };
     const {
       gender,
       pricing,
@@ -61,17 +67,16 @@ class ConfirmInfoPage extends Component {
     const insurancePriceSelect = pricing === "insurancePrice" ? "selected" : "not-selected";
     const bothPriceSelect = pricing === "bothPrices" ? "selected" : "not-selected";
 
-    // const textAlertsClass = this.state.textAlerts ? 'text-alerts' : 'no-text-alerts';
     return <div className="all-info">
         <h4>Confirm Personal Information</h4>
         <div className="personal-info">
           <input title="name" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="First Name, Last Name" value={this.state.medicationName} />
           <input title="dob" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Date of Birth" />
           <div>Gender</div>
-          <div onClick={e => this.toggleGender("female", e)} className={femaleSelect}>
+          <div onClick={() => this.toggleGender("female")} className={femaleSelect}>
             Female
           </div>
-          <div onClick={e => this.toggleGender("male", e)} className={maleSelect}>
+          <div onClick={() => this.toggleGender("male")} className={maleSelect}>
             Male
           </div>
           <input title="email" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="email" />
@@ -111,7 +116,7 @@ class ConfirmInfoPage extends Component {
             Find Me Both Prices
           </div>
         </div>
-        <div onClick={() => this.submitOrder()}>Submit Order</div>
+        <div onClick={() => this.gatherSubmit(this.state)}>Submit Order</div>
       </div>;
   }
 }

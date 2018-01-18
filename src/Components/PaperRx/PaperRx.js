@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import MainContainer from "../../Containers/MainContainer";
 import { Route, NavLink, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import "./PaperRx.css";
 import PrescriptionPage from '../PrescriptionPage/PrescriptionPage';
 import ConfirmInfoPage from '../ConfirmInfoPage/ConfirmInfoPage';
 
 class PaperRx extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
-      medications: [{}]
+      medications: [{}],
+      orderSubmitted: false
     };
     this.addMed = this.addMed.bind(this);
     this.saveMed = this.saveMed.bind(this);
@@ -29,7 +31,6 @@ class PaperRx extends Component {
   }
 
   addMed(obj) {
-    console.log('state', this.state)
     const meds = [...this.state.medications, obj];
     this.setState({ medications: meds });
     
@@ -43,7 +44,18 @@ class PaperRx extends Component {
     })
   }
 
+  submitOrder(obj) {
+    console.log('order submit check')
+    this.setState({
+      obj
+    })
+    this.props.submitOrder(this.state)
+  }
+
   render() {
+    if(this.props.orderSubmitted) {
+      return <Redirect to='/' />
+    };
     console.log('current state', this.props.medications)
     const medPages = this.medsDisplay();
     return <div className="med-info">
@@ -57,7 +69,7 @@ class PaperRx extends Component {
         <div className="add-meds" onClick={() => this.addMed()}>
           Add another medication
         </div>
-        <ConfirmInfoPage />
+        <ConfirmInfoPage submit={()=> this.submitOrder} orderSubmitted={this.state.orderSubmitted}/>
       </div>;
   }
 }
