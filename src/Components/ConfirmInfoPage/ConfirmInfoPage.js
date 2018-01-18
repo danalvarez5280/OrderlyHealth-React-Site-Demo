@@ -42,7 +42,7 @@ class ConfirmInfoPage extends Component {
   }
 
   gatherSubmit(obj) {
-    console.log('stored meds', this.props)
+    console.log('to store meds', obj)
     this.props.submit(obj)
     this.setState({
       orderSubmitted: true
@@ -59,7 +59,7 @@ class ConfirmInfoPage extends Component {
       pricing,
       textAlerts
     } = this.state;
-    console.log('confirm page state:', this.state)
+    
     const femaleSelect = gender === 'female' ? 'selected' : 'not-selected';
     const maleSelect = gender === 'male' ? 'selected' : 'not-selected';
     const textAlertsText = textAlerts ? 'Yes' : 'No';

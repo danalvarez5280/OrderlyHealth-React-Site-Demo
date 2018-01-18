@@ -16,6 +16,7 @@ class PaperRx extends Component {
     };
     this.addMed = this.addMed.bind(this);
     this.saveMed = this.saveMed.bind(this);
+    this.submit = this.submit.bind(this);
   }
   
   medsDisplay(){
@@ -44,19 +45,36 @@ class PaperRx extends Component {
     })
   }
 
-  submitOrder(obj) {
-    console.log('order submit check')
-    this.setState({
-      obj
-    })
-    this.props.submitOrder(this.state)
+  submit(obj) {
+    console.log('order submit check1', obj);
+    // this.setState({
+    //   address: obj.address,
+    //   city: obj.city,
+    //   county: obj.county,
+    //   dob: obj.dob,
+    //   email: obj.email,
+    //   gender: obj.gender,
+    //   insuranceId: obj.insuranceId,
+    //   mobileNum: obj.mobileNum,
+    //   name: obj.name,
+    //   orderSubmitted: obj.orderSubmitted,
+    //   pricing: obj.pricing,
+    //   provider: obj.provider,
+    //   rxBinNumber: obj.rxBinNumber,
+    //   rxGroupNumber: obj.rxGroupNumber,
+    //   rxPcn: obj.rxPcn,
+    //   state: obj.state,
+    //   textAlerts: obj.textAlerts,
+    //   zipcode: obj.zipcode
+    // });
+    console.log(this.props.submitOrder)
+    this.props.submitOrder(obj)
   }
 
   render() {
     if(this.props.orderSubmitted) {
       return <Redirect to='/' />
     };
-    console.log('current state', this.props.medications)
     const medPages = this.medsDisplay();
     return <div className="med-info">
         <div className="new-order">
@@ -69,7 +87,7 @@ class PaperRx extends Component {
         <div className="add-meds" onClick={() => this.addMed()}>
           Add another medication
         </div>
-        <ConfirmInfoPage submit={()=> this.submitOrder} orderSubmitted={this.state.orderSubmitted}/>
+        <ConfirmInfoPage submit={this.submit} orderSubmitted={this.state.orderSubmitted}/>
       </div>;
   }
 }
