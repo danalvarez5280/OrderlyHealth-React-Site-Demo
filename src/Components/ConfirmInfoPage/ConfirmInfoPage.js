@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import MainContainer from '../../Containers/MainContainer';
 import "./ConfirmInfoPage.css";
 
 class ConfirmInfoPage extends Component {
@@ -42,6 +42,9 @@ class ConfirmInfoPage extends Component {
             this.setState({textAlerts: false }) : this.setState({ textAlerts: true }); 
   }
 
+  submitOrder() {
+    console.log('stored meds', this.props)
+  }
 
 
   render() {
@@ -93,9 +96,9 @@ class ConfirmInfoPage extends Component {
             Find Me Both Prices
           </div>
         </div>
-        <div>Submit Order</div>
+        <div onClick={()=> this.submitOrder()}>Submit Order</div>
       </div>;
   }
 }
 
-export default ConfirmInfoPage;
+export default MainContainer(ConfirmInfoPage);

@@ -4,3 +4,10 @@ export const addMed = (medication) => {
     medication
   };
 };
+
+export const submitOrder = (orderInfo) => {
+  return {
+    type: "SUBMIT_ORDER",
+    orderInfo
+  };
+};
