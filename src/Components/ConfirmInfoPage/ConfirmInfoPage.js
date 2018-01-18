@@ -52,7 +52,7 @@ class ConfirmInfoPage extends Component {
 
   render() {
     if(this.state.orderSubmitted) {
-      return <Redirect to='/' />
+      return <Redirect to='/medication/order-received' />
     };
     const {
       gender,

@@ -8,6 +8,7 @@ import MyMap from './Components/Map/MyMap';
 import ChatPage from './Components/ChatPage/ChatPage';
 import PharmacyPage from './Components/PharmacyPage/PharmacyPage';
 import ConfirmInfoPage from './Components/ConfirmInfoPage/ConfirmInfoPage';
+import OrderReceivedPage from './Components/OrderReceivedPage/OrderReceivedPage';
 import Transfer from './Components/Transfer/Transfer';
 import Reorder from './Components/Reorder/Reorder';
 import PaperRx from './Components/PaperRx/PaperRx';
@@ -25,6 +26,7 @@ class App extends Component {
         <Route exact path="/medication/pharmacy" component={Transfer} />
         <Route exact path="/medication/reorder" component={Reorder} />
         <Route exact path="/medication/confirmation" component={ConfirmInfoPage} />
+        <Route exact path="/medication/order-received" component={OrderReceivedPage} />
         <Route exact path="/chat" component={ChatPage} />
       </div>;
   }

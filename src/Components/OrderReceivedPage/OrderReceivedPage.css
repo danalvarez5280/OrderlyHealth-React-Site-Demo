@@ -1,0 +1,12 @@
+p {
+    font-size: 15px;
+}
+
+.review-btn {
+    background-color: green;
+    color: white;
+}
+
+.review-btn:hover {
+    cursor: pointer;
+}
