@@ -4,6 +4,7 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Account from './Components/Account/Account';
 import Medication from './Components/Medication/Medication';
+import MyMap from './Components/Map/MyMap';
 import ChatPage from './Components/ChatPage/ChatPage';
 import PharmacyPage from './Components/PharmacyPage/PharmacyPage';
 import ConfirmInfoPage from './Components/ConfirmInfoPage/ConfirmInfoPage';
@@ -19,6 +20,7 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/medication" component={Medication} />
         <Route exact path="/account" component={Account} />
+        <Route exact path="/doctors" component={MyMap} />
         <Route exact path="/medication/paperrx" component={PaperRx} />
         <Route exact path="/medication/pharmacy" component={Transfer} />
         <Route exact path="/medication/reorder" component={Reorder} />
