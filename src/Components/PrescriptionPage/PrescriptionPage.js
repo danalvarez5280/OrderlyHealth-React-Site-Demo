@@ -13,6 +13,8 @@ class PrescriptionPage extends Component {
       refills: '',
       docName: '',
       docNumber: '',
+      pharmacy: props.pharmacy,
+      usePreviousDocInfo: false,
       currentMeds: props.currentMeds,
       medNum: props.medNum
     }
@@ -56,6 +58,7 @@ class PrescriptionPage extends Component {
   }
 
   render() {
+    console.log('pharmacypage?', this.state.pharmacy)
     const previousDocText = this.toggleText();
     return <div className="med-info">
         <h4>Medication Information</h4>
@@ -65,12 +68,26 @@ class PrescriptionPage extends Component {
           <input title="quantity" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Quantity" />
           <input title="supply" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Supply" />
           <input title="refills" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Refills" />
-          {this.state.medNum > 0 && <div onClick={() => this.toggleDocInfo()}>
+          {
+            this.state.medNum > 0 && <div onClick={() => this.toggleDocInfo()}>
               Use Previous Doc Info?
               {previousDocText}
-            </div>}
-          <input title="docName" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Prescribing Doctor's Name" value={this.state.docName} />
-          <input title="docNumber" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Prescribing Doctor's Phone Number" value={this.state.docNumber} />
+            </div>
+          }
+          {
+            this.state.pharmacy && 
+            <div>
+              <input title="pharmacyName" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Pharmacy's Name" value={this.state.pharmacyName} />
+              <input title="pharmacyNumber" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Pharmacy's Phone Number" value={this.state.pharamcyNumber} />
+            </div>
+          }
+          {
+            !this.state.pharmacy &&
+            <div>
+              <input title="docName" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Prescribing Doctor's Name" value={this.state.docName} />
+              <input title="docNumber" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Prescribing Doctor's Phone Number" value={this.state.docNumber} />
+            </div>
+          }
           <div className="save-med-btn" onClick={() => this.saveInfo()}>
             Save
           </div>

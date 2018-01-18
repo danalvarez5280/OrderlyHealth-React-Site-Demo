@@ -17,6 +17,10 @@
     justify-content: center;
 }
 
+.nav-confirm {
+    color: green;
+}
+
 .new-order {
     display: flex;
     flex-direction: row;

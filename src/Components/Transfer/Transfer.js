@@ -1,41 +1,55 @@
 import React, { Component } from "react";
+import MainContainer from "../../Containers/MainContainer";
 
+// import "./Transfer.css";
 import PrescriptionPage from "../PrescriptionPage/PrescriptionPage";
 
 class Transfer extends Component {
   constructor() {
     super();
     this.state = {
-      transferMedications: [{}]
+      medications: [{}]
     };
     this.addMed = this.addMed.bind(this);
     this.saveMed = this.saveMed.bind(this);
   }
 
   medsDisplay() {
-    return this.state.transferMedications.map((elem, index) => {
-      return (
-        <PrescriptionPage key={index} medNum={index} saveMed={this.saveMed} />
-      );
+    const meds = this.state.medications;
+    if (meds.length > 1) {
+      return meds.map((elem, index) => {
+        return (
+          <PrescriptionPage
+            currentMeds={this.state.medications[0]}
+            key={index}
+            medNum={index}
+            pharmacy={true}
+            saveMed={this.saveMed}
+          />
+        );
+      });
+    }
+    return meds.map((elem, index) => {
+      return <PrescriptionPage key={index} medNum={index} pharmacy={true} saveMed={this.saveMed} />;
     });
   }
 
   addMed(obj) {
     console.log("state", this.state);
-    const meds = [...this.state.transferMedications, obj];
-    this.setState({ transferMedications: meds });
+    const meds = [...this.state.medications, obj];
+    this.setState({ medications: meds });
   }
 
   saveMed(obj) {
-    const meds = this.state.transferMedications;
+    const meds = this.state.medications;
     meds.splice(obj.medNum, 1, obj);
     this.setState({
-      transferMedications: meds
+      medications: meds
     });
   }
 
   render() {
-    console.log("current state", this.state);
+    console.log("current state", this.props.medications);
     const medPages = this.medsDisplay();
     return (
       <div className="med-info">
@@ -52,4 +66,4 @@ class Transfer extends Component {
   }
 }
 
-export default Transfer;
+export default MainContainer(Transfer);

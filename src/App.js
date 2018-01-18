@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import Medication from './Components/Medication/Medication';
 import ChatPage from './Components/ChatPage/ChatPage';
 import PharmacyPage from './Components/PharmacyPage/PharmacyPage';
+import ConfirmInfoPage from './Components/ConfirmInfoPage/ConfirmInfoPage';
 import Transfer from './Components/Transfer/Transfer';
 import Reorder from './Components/Reorder/Reorder';
 import PaperRx from './Components/PaperRx/PaperRx';
@@ -19,8 +20,8 @@ class App extends Component {
         <Route exact path="/medication/paperrx" component={PaperRx} />
         <Route exact path="/medication/pharmacy" component={Transfer} />
         <Route exact path="/medication/reorder" component={Reorder} />
+        <Route exact path="/medication/confirmation" component={ConfirmInfoPage} />
         <Route exact path="/chat" component={ChatPage} />
-
       </div>;
   }
 }

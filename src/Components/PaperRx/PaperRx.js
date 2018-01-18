@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MainContainer from "../../Containers/MainContainer";
+import { Route, NavLink, Link } from "react-router-dom";
 
 import "./PaperRx.css";
 import PrescriptionPage from '../PrescriptionPage/PrescriptionPage';
@@ -49,10 +50,13 @@ class PaperRx extends Component {
           <div className="cancel-button">CANCEL</div>
           <h3>NEW ORDER</h3>
         </div>
-        <div>
-          {medPages}
+        <div>{medPages}</div>
+        <div className="add-meds" onClick={() => this.addMed()}>
+          Add another medication
         </div>
-        <div className="add-meds" onClick={() => this.addMed()}>Add another medication</div>
+        <NavLink to="/medication/confirmation" className="nav-confirm">
+          Next
+        </NavLink>
       </div>;
   }
 }
