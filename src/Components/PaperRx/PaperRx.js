@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MainContainer from "../../Containers/MainContainer";
+import { Route, NavLink, Link } from "react-router-dom";
 
 import "./PaperRx.css";
 import PrescriptionPage from '../PrescriptionPage/PrescriptionPage';
@@ -47,7 +48,9 @@ class PaperRx extends Component {
     const medPages = this.medsDisplay();
     return <div className="med-info">
         <div className="new-order">
-          <div className="cancel-button">CANCEL</div>
+          <Link className="nav-confirm" to="/">
+            CANCEL
+          </Link>
           <h3>NEW ORDER</h3>
         </div>
         <div>{medPages}</div>

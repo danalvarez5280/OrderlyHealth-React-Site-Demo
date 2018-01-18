@@ -17,3 +17,7 @@
 .text-alerts {
     background-color: green;
 }
+
+.not-selected:hover, .selected:hover, .text-alerts:hover, .no-text-alerts:hover {
+    cursor: pointer;
+}

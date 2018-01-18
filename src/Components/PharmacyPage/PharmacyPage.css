@@ -1,0 +1,10 @@
+.save-med-btn {
+    background-color: green;
+    color: white;
+}
+
+.save-med-btn:hover {
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}

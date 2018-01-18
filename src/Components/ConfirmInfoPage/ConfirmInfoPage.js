@@ -48,10 +48,19 @@ class ConfirmInfoPage extends Component {
 
 
   render() {
+    const {
+      gender,
+      pricing,
+      textAlerts
+    } = this.state;
     console.log('confirm page state:', this.state)
-    const femaleSelect = this.state.gender === 'female' ? 'selected' : 'not-selected';
-    const maleSelect = this.state.gender === 'male' ? 'selected' : 'not-selected';
-    const textAlertsText = this.state.textAlerts ? 'Yes' : 'No';
+    const femaleSelect = gender === 'female' ? 'selected' : 'not-selected';
+    const maleSelect = gender === 'male' ? 'selected' : 'not-selected';
+    const textAlertsText = textAlerts ? 'Yes' : 'No';
+    const cashPriceSelect = pricing === "cashPrice" ? "selected" : "not-selected";
+    const insurancePriceSelect = pricing === "insurancePrice" ? "selected" : "not-selected";
+    const bothPriceSelect = pricing === "bothPrices" ? "selected" : "not-selected";
+
     // const textAlertsClass = this.state.textAlerts ? 'text-alerts' : 'no-text-alerts';
     return <div className="all-info">
         <h4>Confirm Personal Information</h4>
@@ -59,12 +68,18 @@ class ConfirmInfoPage extends Component {
           <input title="name" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="First Name, Last Name" value={this.state.medicationName} />
           <input title="dob" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Date of Birth" />
           <div>Gender</div>
-          <div onClick={(e) => this.toggleGender("female", e)} className={femaleSelect}>Female</div>
-          <div onClick={(e) => this.toggleGender('male', e)} className={maleSelect}>Male</div>
+          <div onClick={e => this.toggleGender("female", e)} className={femaleSelect}>
+            Female
+          </div>
+          <div onClick={e => this.toggleGender("male", e)} className={maleSelect}>
+            Male
+          </div>
           <input title="email" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="email" />
           <input title="mobileNum" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Mobile Number" />
           <div>Receive Text Alerts About Your Order?</div>
-          <div className='no-text-alerts' onClick={(e)=> this.toggleTextAlerts(e)}>{textAlertsText}</div>
+          <div className="no-text-alerts" onClick={e => this.toggleTextAlerts(e)}>
+            {textAlertsText}
+          </div>
         </div>
         <div>
           Mailing Address
@@ -86,17 +101,17 @@ class ConfirmInfoPage extends Component {
         </div>
         Please Confirm the Pricing you are looking for for these medications.
         <div>
-          <div className='not-selected' title="cashPrice" onClick={e => this.togglePricing(e)}>
+          <div className={cashPriceSelect} title="cashPrice" onClick={e => this.togglePricing(e)}>
             Find Me The Cash Price
           </div>
-          <div className='not-selected' title="insurancePrice" onClick={e => this.togglePricing(e)}>
+          <div className={insurancePriceSelect} title="insurancePrice" onClick={e => this.togglePricing(e)}>
             Find Me The Insurance Covered Price
           </div>
-          <div className='not-selected' title="bothPrices" onClick={e => this.togglePricing(e)}>
+          <div className={bothPriceSelect} title="bothPrices" onClick={e => this.togglePricing(e)}>
             Find Me Both Prices
           </div>
         </div>
-        <div onClick={()=> this.submitOrder()}>Submit Order</div>
+        <div onClick={() => this.submitOrder()}>Submit Order</div>
       </div>;
   }
 }
