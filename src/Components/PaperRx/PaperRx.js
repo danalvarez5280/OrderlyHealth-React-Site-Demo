@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import MainContainer from "../../Containers/MainContainer";
-import { Route, NavLink, Link } from "react-router-dom";
 
 import "./PaperRx.css";
 import PrescriptionPage from '../PrescriptionPage/PrescriptionPage';
+import ConfirmInfoPage from '../ConfirmInfoPage/ConfirmInfoPage';
 
 class PaperRx extends Component {
   constructor() {
@@ -54,9 +54,7 @@ class PaperRx extends Component {
         <div className="add-meds" onClick={() => this.addMed()}>
           Add another medication
         </div>
-        <NavLink to="/medication/confirmation" className="nav-confirm">
-          Next
-        </NavLink>
+        <ConfirmInfoPage />
       </div>;
   }
 }

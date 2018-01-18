@@ -1,0 +1,19 @@
+
+.not-selected {
+    background-color: white;
+    color: gray;
+}
+
+
+.no-text-alerts {
+    background-color: red;
+}
+
+.selected {
+    background-color: gray;
+    color: white;
+}
+
+.text-alerts {
+    background-color: green;
+}

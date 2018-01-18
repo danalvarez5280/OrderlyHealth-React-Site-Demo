@@ -13,6 +13,7 @@ class PrescriptionPage extends Component {
       refills: '',
       docName: '',
       docNumber: '',
+      storedMeds: props.medicationInfo,
       pharmacy: props.pharmacy,
       usePreviousDocInfo: false,
       currentMeds: props.currentMeds,
@@ -35,7 +36,7 @@ class PrescriptionPage extends Component {
   }
 
   saveInfo() {
-    this.props.addMed(this.state)
+    this.props.addMed(this.state); //redux funtion
     this.props.saveMed(this.state);
   }
 
