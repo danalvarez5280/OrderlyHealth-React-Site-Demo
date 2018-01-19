@@ -17,7 +17,7 @@ class Reorder extends Component {
 
     return this.state.medications.map((elem, index) => {
       return (
-        <div>
+        <div key={index}>
           <h4>{elem.medicationName}</h4>
           <p>{elem.dose} mg</p>
           <p>{elem.refills} Refills</p>
