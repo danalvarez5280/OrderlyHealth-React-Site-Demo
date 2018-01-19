@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import Account from './Components/Account/Account';
 import Medication from './Components/Medication/Medication';
 import MyMap from './Components/Map/MyMap';
+import DoctorRefill from './Components/DoctorRefill/DoctorRefill';
 import ChatPage from './Components/ChatPage/ChatPage';
 import PharmacyPage from './Components/PharmacyPage/PharmacyPage';
 import ConfirmInfoPage from './Components/ConfirmInfoPage/ConfirmInfoPage';
@@ -24,6 +25,7 @@ class App extends Component {
         <Route exact path="/doctors" component={MyMap} />
         <Route exact path="/medication/paperrx" component={PaperRx} />
         <Route exact path="/medication/pharmacy" component={Transfer} />
+        <Route exact path="/medication/doctorrx" component={DoctorRefill} />
         <Route exact path="/medication/reorder" component={Reorder} />
         <Route exact path="/medication/confirmation" component={ConfirmInfoPage} />
         <Route exact path="/medication/order-received" component={OrderReceivedPage} />

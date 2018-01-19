@@ -47,26 +47,6 @@ class PaperRx extends Component {
 
   submit(obj) {
     console.log('order submit check1', obj);
-    // this.setState({
-    //   address: obj.address,
-    //   city: obj.city,
-    //   county: obj.county,
-    //   dob: obj.dob,
-    //   email: obj.email,
-    //   gender: obj.gender,
-    //   insuranceId: obj.insuranceId,
-    //   mobileNum: obj.mobileNum,
-    //   name: obj.name,
-    //   orderSubmitted: obj.orderSubmitted,
-    //   pricing: obj.pricing,
-    //   provider: obj.provider,
-    //   rxBinNumber: obj.rxBinNumber,
-    //   rxGroupNumber: obj.rxGroupNumber,
-    //   rxPcn: obj.rxPcn,
-    //   state: obj.state,
-    //   textAlerts: obj.textAlerts,
-    //   zipcode: obj.zipcode
-    // });
     console.log(this.props.submitOrder)
     this.props.submitOrder(obj)
   }
