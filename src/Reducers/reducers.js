@@ -17,3 +17,23 @@ export const submitOrder = (state = [], action) => {
       return state;
   }
 };
+
+export const saveUserDocInfo = (state = {}, action) => {
+  switch(action.type) {
+    case "USER_DOC_INFO":
+    return Object.assign({}, state, action.userDocInfo);
+
+    default:
+    return state;
+  }
+};
+
+export const saveUserInsurance = (state = {}, action) => {
+  switch(action.type) {
+    case "USER_INSURANCE":
+    return Object.assign({}, state, action.userInsurance);
+
+    default: 
+    return state;
+  }
+}

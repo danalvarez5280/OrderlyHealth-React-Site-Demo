@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import MainContainer from '../../Containers/MainContainer';
+
 class AccountDoctor extends Component {
   constructor() {
     super();
@@ -11,7 +13,13 @@ class AccountDoctor extends Component {
     });
   }
 
+  saveInfo() {
+    console.log(this.props)
+    this.props.saveUserDocInfo(this.state);
+  }
+
   render() {
+      console.log('userDoc', this.props.userDoc)
     return (
       <div>
         Primary Care Physician
@@ -66,10 +74,10 @@ class AccountDoctor extends Component {
             placeholder="Office Phone"
           />
         </div>
-        <div>Save</div>
+        <div onClick={() => this.saveInfo()}>Save</div>
       </div>
     );
   }
 }
 
-export default AccountDoctor;
+export default MainContainer(AccountDoctor);

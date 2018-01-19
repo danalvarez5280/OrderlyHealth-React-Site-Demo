@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MainContainer from '../../Containers/MainContainer';
 
 class AccountInsurance extends Component {
   constructor() {
@@ -11,7 +12,13 @@ class AccountInsurance extends Component {
     });
   }
 
+  saveInfo() {
+    console.log(this.props);
+    this.props.saveUserInsurance(this.state);
+  }
+
   render() {
+    console.log('user insurance', this.props.userInsurance);
     return (
       <div>
         Insurance Information
@@ -68,10 +75,10 @@ class AccountInsurance extends Component {
             placeholder="Annual Household Income"
           />
         </div>
-        <div>Save</div>
+        <div onClick={() => this.saveInfo()}>Save</div>
       </div>
     );
   }
 }
 
-export default AccountInsurance;
+export default MainContainer(AccountInsurance);

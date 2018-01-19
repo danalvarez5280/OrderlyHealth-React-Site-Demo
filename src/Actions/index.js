@@ -11,3 +11,17 @@ export const submitOrder = (orderInfo) => {
     orderInfo
   };
 };
+
+export const saveUserDocInfo = (userDocInfo) => {
+  return {
+    type: "USER_DOC_INFO",
+    userDocInfo
+  };
+};
+
+export const saveUserInsurance = (userInsurance) => {
+  return {
+    type: "USER_INSURANCE",
+    userInsurance
+  };
+};
