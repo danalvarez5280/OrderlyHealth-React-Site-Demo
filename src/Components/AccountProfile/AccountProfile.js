@@ -68,6 +68,7 @@ class AccountProfile extends Component {
             Link My Mobile Phone
           </div>
         </div>
+        <div>Save</div>
       </div>;
 
   }
