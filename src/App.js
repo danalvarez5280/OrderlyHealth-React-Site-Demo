@@ -3,6 +3,10 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Account from './Components/Account/Account';
+import AccountProfile from './Components/AccountProfile/AccountProfile';
+import AccountMedical from './Components/AccountMedical/AccountMedical';
+import AccountInsurance from './Components/AccountInsurance/AccountInsurance';
+import AccountDoctor from './Components/AccountDoctor/AccountDoctor';
 import Medication from './Components/Medication/Medication';
 import MyMap from './Components/Map/MyMap';
 import DoctorRefill from './Components/DoctorRefill/DoctorRefill';
@@ -22,6 +26,10 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/medication" component={Medication} />
         <Route exact path="/account" component={Account} />
+        <Route exact path="/account/profile" component={AccountProfile} />
+        <Route exact path="/account/medical" component={AccountMedical} />
+        <Route exact path="/account/insurance" component={AccountInsurance} />
+        <Route exact path="/account/doctor" component={AccountDoctor} />
         <Route exact path="/doctors" component={MyMap} />
         <Route exact path="/medication/paperrx" component={PaperRx} />
         <Route exact path="/medication/pharmacy" component={Transfer} />
