@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
+import MainContainer from '../../Containers/MainContainer';
 
 class AccountMedical extends Component {
   constructor() {
     super();
     this.state = {
       userAllergies: false,
-      medText: false,
-      illnessText: false,
-      surgeryText: false,
-      medProblemText: false,
-      smokerText: false,
-      pregnantText: false
+      userMeds: false,
+      userIllness: false,
+      userSurgeries: false,
+      userMedProblems: false,
+      userSmoker: false,
+      userPregnant: false,
     }
   }
   toggleTrue(e) {
@@ -22,15 +23,20 @@ class AccountMedical extends Component {
     this.setState({ [e.target.title]: false });
   }
 
+  saveInfo() {
+    this.props.saveUserMedicalInfo(this.state);
+  }
+
 
   render() {
-    const allergyText = this.state.userAllergies ? 'Yes' : 'No'
-    const medText = this.state.userMeds ? 'Yes' : 'No'
+    const allergyText = this.state.userAllergies ? 'Yes' : 'No';
+    const medText = this.state.userMeds ? 'Yes' : 'No';
     const illnessText = this.state.userIllness ? "Yes" : "No";
     const surgeryText = this.state.userSurgeries ? "Yes" : "No";
     const medProblemText = this.state.userMedProblems ? "Yes" : "No";
     const smokerText = this.state.userSmoker ? "Yes" : "No";
     const pregnantText = this.state.userPregnant ? "Yes" : "No";
+    console.log('user medical question answers', this.props.userMedicalInfo);
     return (
       <div>
         Medical Information
@@ -43,10 +49,10 @@ class AccountMedical extends Component {
           <div>Do you smoke? <div title='userSmoker' onClick={(e)=> this.toggleTrue(e)}>{smokerText}</div></div>
           <div>Are you pregnant or trying? <div title='userPregnant' onClick={(e)=> this.toggleTrue(e)}>{pregnantText}</div></div>
         </div>
-        <div>Save</div>
+        <div onClick={() => this.saveInfo()}>Save</div>
       </div>
     )
   }
 }
 
-export default AccountMedical;
+export default MainContainer(AccountMedical);

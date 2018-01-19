@@ -36,4 +36,14 @@ export const saveUserInsurance = (state = {}, action) => {
     default: 
     return state;
   }
-}
+};
+
+export const saveUserMedicalInfo = (state = {}, action) => {
+  switch(action.type) {
+    case "USER_MEDICAL":
+    return Object.assign({}, state, action.userMedical)
+
+    default:
+    return state;
+  }
+};

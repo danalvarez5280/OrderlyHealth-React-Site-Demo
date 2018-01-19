@@ -4,6 +4,7 @@ import {
   submitOrder,
   saveUserDocInfo,
   saveUserInsurance,
+  saveUserMedicalInfo,
 } from "../Actions/index";
 
 const mapStateToProps = store => {
@@ -12,6 +13,7 @@ const mapStateToProps = store => {
    recentOrders: store.submitOrder,
    userDoc: store.saveUserDocInfo,
    userInsurance: store.saveUserInsurance,
+   userMedicalInfo: store.saveUserMedicalInfo,
   };
 };
 
@@ -20,6 +22,7 @@ const mapDispatchToProps = dispatch => {
     addMed: (obj) => dispatch(addMed(obj)),
     saveUserDocInfo: (obj) => dispatch(saveUserDocInfo(obj)),
     saveUserInsurance: (obj) => dispatch(saveUserInsurance(obj)),
+    saveUserMedicalInfo: (obj) => dispatch(saveUserMedicalInfo(obj)),
     submitOrder: (obj) => dispatch(submitOrder(obj)),
 
   };

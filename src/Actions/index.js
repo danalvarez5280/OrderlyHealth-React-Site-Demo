@@ -25,3 +25,10 @@ export const saveUserInsurance = (userInsurance) => {
     userInsurance
   };
 };
+
+export const saveUserMedicalInfo = (userMedical) => {
+  return {
+    type: "USER_MEDICAL",
+    userMedical
+  }
+};
