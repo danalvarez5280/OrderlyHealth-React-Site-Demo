@@ -12,6 +12,13 @@ export const submitOrder = (orderInfo) => {
   };
 };
 
+export const saveUserProfile = (userInfo) => {
+  return {
+    type: "USER_INFO",
+    userInfo
+  };
+};
+
 export const saveUserDocInfo = (userDocInfo) => {
   return {
     type: "USER_DOC_INFO",

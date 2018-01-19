@@ -2,15 +2,17 @@ import { combineReducers } from "redux";
 import {
   addMed,
   submitOrder,
+  saveUserProfile,
   saveUserDocInfo,
   saveUserInsurance,
-  saveUserMedicalInfo
+  saveUserMedicalInfo,
 } from "./reducers";
 import { routerReducer } from "react-router-redux";
 
 const rootReducer = combineReducers({
     addMed,
     submitOrder,
+    saveUserProfile,
     saveUserDocInfo,
     saveUserInsurance,
     saveUserMedicalInfo,

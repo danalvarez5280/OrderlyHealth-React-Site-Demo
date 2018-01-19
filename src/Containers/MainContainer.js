@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import {
   addMed,
   submitOrder,
+  saveUserProfile,
   saveUserDocInfo,
   saveUserInsurance,
   saveUserMedicalInfo,
@@ -11,6 +12,7 @@ const mapStateToProps = store => {
   return {
    medications: store.addMed,
    recentOrders: store.submitOrder,
+   userInfo: store.saveUserProfile,
    userDoc: store.saveUserDocInfo,
    userInsurance: store.saveUserInsurance,
    userMedicalInfo: store.saveUserMedicalInfo,
@@ -20,6 +22,7 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
   return {
     addMed: (obj) => dispatch(addMed(obj)),
+    saveUserProfile: (obj) => dispatch(saveUserProfile(obj)),
     saveUserDocInfo: (obj) => dispatch(saveUserDocInfo(obj)),
     saveUserInsurance: (obj) => dispatch(saveUserInsurance(obj)),
     saveUserMedicalInfo: (obj) => dispatch(saveUserMedicalInfo(obj)),

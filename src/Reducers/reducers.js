@@ -18,6 +18,16 @@ export const submitOrder = (state = [], action) => {
   }
 };
 
+export const saveUserProfile = (state = {}, action) => {
+  switch(action.type) {
+    case "USER_INFO":
+    return Object.assign({}, state, action.userInfo);
+
+    default:
+    return state;
+  }
+};
+
 export const saveUserDocInfo = (state = {}, action) => {
   switch(action.type) {
     case "USER_DOC_INFO":

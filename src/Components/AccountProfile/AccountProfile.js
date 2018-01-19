@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import MainContainer from '../../Containers/MainContainer';
 
 class AccountProfile extends Component {
   constructor() {
@@ -27,8 +28,13 @@ class AccountProfile extends Component {
     }
   }
 
+  saveInfo() {
+    console.log('clicked save on personal info')
+    this.props.saveUserProfile(this.state)
+  }
+
   render() {
-    console.log('account profile page', this.state)
+    console.log('account profile page', this.props)
     const femaleSelected = this.state.gender === 'female' ? 'selected' : 'not-selected';
     const maleSelected = this.state.gender === 'male' ? 'selected' : 'not-selected';
     const noneSelected = this.state.gender === 'N/A' ? 'selected' : 'not-selected';
@@ -68,10 +74,10 @@ class AccountProfile extends Component {
             Link My Mobile Phone
           </div>
         </div>
-        <div>Save</div>
+        <div onClick={() => this.saveInfo()}>Save</div>
       </div>;
 
   }
 }
 
-export default AccountProfile;
+export default MainContainer(AccountProfile);
