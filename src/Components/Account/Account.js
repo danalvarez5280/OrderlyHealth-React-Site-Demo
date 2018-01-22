@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Route, NavLink, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+
+import MainContainer from '../../Containers/MainContainer';
 
 
 class Account extends Component {
@@ -11,6 +14,10 @@ class Account extends Component {
   }
 
   render() {
+    if(this.props.userLogin.email === undefined) {
+      return <Redirect to='/login' />
+    };
+    console.log('accoutn page: store', this.props)
     return <div className="account-page">
         <div className="links">
           <NavLink to="/account/profile" className="med-nav">
@@ -30,4 +37,4 @@ class Account extends Component {
   }
 };
 
-export default Account;
+export default MainContainer(Account);

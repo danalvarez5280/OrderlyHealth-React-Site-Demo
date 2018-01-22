@@ -63,8 +63,8 @@ class PrescriptionPage extends Component {
     const previousDocText = this.toggleText();
     return <div className="med-info">
         <h4>Medication Information</h4>
-        <div className="medicaion-info">
-          <input title="medicationName" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Medication Name" value={this.state.medicationName} />
+        <div className="medication-info">
+          <input title="medicationName" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Medication Name" value={this.state.medicationName} />
           <input title="dose" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Dose" />
           <input title="quantity" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Quantity" />
           <input title="supply" type="text" className="half-input" onChange={e => this.grabInfo(e)} placeholder="Supply" />

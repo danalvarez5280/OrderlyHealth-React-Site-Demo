@@ -1,20 +1,43 @@
+h3 {
+    margin: 0;
+}
+
 .add-meds {
-    background-color: blue;
+    align-items: center;
+    background-color: skyblue;
+    border: 2px solid white;
+    border-radius: 15px 15px;
+    display: flex;
+    justify-content: center;
+    min-height: 35px;
+    text-align: center;
+    transition-duration: 1s;
+    width: 300px;
 }
 
 .add-meds:hover {
     cursor: pointer;
+    color: white;
+    background-color: blue;
+    transition-duration: 1s;
 }
 
 .cancel-button {
     margin-left: 25px;
 }
 
+.med-area {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .med-info {
     align-items: center;
+    background-color: ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 80vw;
 }
 
 .nav-confirm {
@@ -22,7 +45,10 @@
 }
 
 .new-order {
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 400px;
+    margin-top: 25px;
 }

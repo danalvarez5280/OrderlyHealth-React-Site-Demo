@@ -11,4 +11,11 @@ header {
 .nav {
     color: white;
     height: 30px;
+    text-decoration: none;
+}
+
+.orderly-logo {
+    background-image: url('../Assets/orderly_workmark_flat_2.png');
+    min-height: 25px;
+    min-width: 100px;
 }

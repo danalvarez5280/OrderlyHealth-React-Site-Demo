@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 import {
   addMed,
+  addChat,
+  login,
   submitOrder,
   saveUserProfile,
   saveUserDocInfo,
@@ -11,6 +13,8 @@ import { routerReducer } from "react-router-redux";
 
 const rootReducer = combineReducers({
     addMed,
+    addChat,
+    login,
     submitOrder,
     saveUserProfile,
     saveUserDocInfo,

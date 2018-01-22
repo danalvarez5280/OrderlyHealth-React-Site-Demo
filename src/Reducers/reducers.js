@@ -8,6 +8,26 @@ export const addMed = (state = [], action) => {
   }
 };
 
+export const addChat = (state = [], action) => {
+  switch (action.type) {
+    case "ADD_CHAT":
+      return [...state, action.dialogue];
+
+      default:
+        return state;
+  }
+};
+
+export const login = (state ={}, action) => {
+  switch(action.type) {
+    case "LOGIN":
+      return Object.assign({}, state, action.user);
+
+    default:
+      return state;
+  }
+};
+
 export const submitOrder = (state = [], action) => {
   switch(action.type) {
     case "SUBMIT_ORDER":
