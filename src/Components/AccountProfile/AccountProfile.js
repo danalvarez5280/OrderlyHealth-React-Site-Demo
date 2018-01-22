@@ -2,9 +2,15 @@ import React, {Component} from 'react';
 import MainContainer from '../../Containers/MainContainer';
 
 class AccountProfile extends Component {
-  constructor() {
+  constructor(props) {
     super();
-    this.state = { mobileLinked: false };
+    this.state = { 
+      userFirstName: props.userLogin.firstName,
+      userLastName: props.userLogin.lastName,
+      userZipcode: props.userLogin.zipcode,
+      userMobile: props.userLogin.phone,
+      mobileLinked: false 
+    };
   }
 
   grabInfo(e) {
@@ -42,8 +48,8 @@ class AccountProfile extends Component {
     return <div>
         Personal Info
         <div>
-          <input title="userFirstName" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="First Name" />
-          <input title="userLastName" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Last Name" />
+          <input title="userFirstName" type="text" value={this.state.userFirstName} className="full-input" onChange={e => this.grabInfo(e)} placeholder="First Name" />
+          <input title="userLastName" type="text" value={this.state.userLastName} className="full-input" onChange={e => this.grabInfo(e)} placeholder="Last Name" />
           <input title="userDOB" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Birth Date" />
           <div>
             Gender
@@ -64,12 +70,12 @@ class AccountProfile extends Component {
           <input title="userAddress2" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Mailing Address 2" />
           <input title="userCity" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="City" />
           <input title="userState" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="State" />
-          <input title="userZipcode" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Zipcode" />
+          <input title="userZipcode" value={this.state.userZipcode} type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Zipcode" />
           <input title="userCounty" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="County" />
         </div>
         Mobile Phone
         <div>
-          <input title="userMobile" type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Mobile Phone Number" />
+          <input title="userMobile" value={this.state.userMobile} type="text" className="full-input" onChange={e => this.grabInfo(e)} placeholder="Mobile Phone Number" />
           <div className={phoneLinked} onClick={() => this.linkMobile()}>
             Link My Mobile Phone
           </div>
