@@ -63,7 +63,7 @@ class PaperRx extends Component {
           </Link>
           <h3>NEW ORDER</h3>
         </div>
-        <div>{medPages}</div>
+        <div className="med-area">{medPages}</div>
         <div className="add-meds" onClick={() => this.addMed()}>
           Add another medication
         </div>

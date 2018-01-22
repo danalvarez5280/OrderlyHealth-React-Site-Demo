@@ -1,0 +1,15 @@
+.medication-info {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.half-input {
+    height: 30px;
+}
+
+.full-input {
+    height: 30px;
+    width: 400px;
+}
