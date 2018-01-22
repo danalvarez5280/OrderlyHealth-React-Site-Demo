@@ -2,9 +2,17 @@ import React, { Component } from "react";
 import MainContainer from '../../Containers/MainContainer';
 
 class AccountInsurance extends Component {
-  constructor() {
+  constructor(props) {
     super();
-    this.state = {};
+    this.state = { 
+      userInsurance: props.userInsurance.userInsurance,
+      userInsuranceId: props.userInsurance.userInsuranceId,
+      userRxGroupNum: props.userInsurance.userRxGroupNum,
+      userRxPCN: props.userInsurance.userRxPCN,
+      userRxBinNum: props.userInsurance.userRxBinNum,
+      userHouseholdSize: props.userInsurance.userHouseholdSize,
+      userAnnualHouseIncome: props.userInsurance.userAnnualHouseIncome,
+    };
   }
   grabInfo(e) {
     this.setState({
@@ -18,6 +26,15 @@ class AccountInsurance extends Component {
   }
 
   render() {
+    const { 
+      userInsurance,
+      userInsuranceId,
+      userAnnualHouseIncome,
+      userHouseholdSize,
+      userRxBinNum,
+      userRxPCN,
+      userRxGroupNum,
+     } = this.state;
     console.log('user insurance', this.props.userInsurance);
     return (
       <div>
@@ -25,13 +42,15 @@ class AccountInsurance extends Component {
         <div>
           <input
             title="userInsurance"
+            value={userInsurance}
             type="text"
             className="full-input"
             onChange={e => this.grabInfo(e)}
             placeholder="Insurer"
           />
           <input
-            title="userInsurnceId"
+            title="userInsuranceId"
+            value={userInsuranceId}
             type="text"
             className="full-input"
             onChange={e => this.grabInfo(e)}
@@ -39,6 +58,7 @@ class AccountInsurance extends Component {
           />
           <input
             title="userRxGroupNum"
+            value={userRxGroupNum}
             type="text"
             className="full-input"
             onChange={e => this.grabInfo(e)}
@@ -46,6 +66,7 @@ class AccountInsurance extends Component {
           />
           <input
             title="userRxPCN"
+            value={userRxPCN}
             type="text"
             className="full-input"
             onChange={e => this.grabInfo(e)}
@@ -53,6 +74,7 @@ class AccountInsurance extends Component {
           />
           <input
             title="userRxBinNum"
+            value={userRxBinNum}
             type="text"
             className="full-input"
             onChange={e => this.grabInfo(e)}
@@ -62,6 +84,7 @@ class AccountInsurance extends Component {
         Household Information<div>
           <input
             title="userHouseholdSize"
+            value={userHouseholdSize}
             type="text"
             className="full-input"
             onChange={e => this.grabInfo(e)}
@@ -69,6 +92,7 @@ class AccountInsurance extends Component {
           />
           <input
             title="userAnnualHouseIncome"
+            value={userAnnualHouseIncome}
             type="text"
             className="full-input"
             onChange={e => this.grabInfo(e)}

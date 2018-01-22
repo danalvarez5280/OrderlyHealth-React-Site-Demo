@@ -2,16 +2,16 @@ import React, {Component} from 'react';
 import MainContainer from '../../Containers/MainContainer';
 
 class AccountMedical extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
-      userAllergies: false,
-      userMeds: false,
-      userIllness: false,
-      userSurgeries: false,
-      userMedProblems: false,
-      userSmoker: false,
-      userPregnant: false,
+      userAllergies: props.userMedicalInfo.userAllergies,
+      userMeds: props.userMedicalInfo.userMeds,
+      userIllness: props.userMedicalInfo.userIllness,
+      userSurgeries: props.userMedicalInfo.userSurgeries,
+      userMedProblems: props.userMedicalInfo.userMedProblems,
+      userSmoker: props.userMedicalInfo.userSmoker,
+      userPregnant: props.userMedicalInfo.userPregnant,
     }
   }
   toggleTrue(e) {
