@@ -5,6 +5,13 @@ export const addMed = (medication) => {
   };
 };
 
+export const login = (user) => {
+  return {
+    type: "LOGIN",
+    user
+  };
+};
+
 export const submitOrder = (orderInfo) => {
   return {
     type: "SUBMIT_ORDER",

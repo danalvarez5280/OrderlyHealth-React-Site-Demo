@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
+import Login from './Components/Login/Login';
 import Account from './Components/Account/Account';
 import AccountProfile from './Components/AccountProfile/AccountProfile';
 import AccountMedical from './Components/AccountMedical/AccountMedical';
@@ -24,6 +25,7 @@ class App extends Component {
     return <div className="App">
         <Header />
         <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
         <Route exact path="/medication" component={Medication} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/account/profile" component={AccountProfile} />
