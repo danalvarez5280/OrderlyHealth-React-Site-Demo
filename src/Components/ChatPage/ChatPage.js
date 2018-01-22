@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
+import MainContainer from '../../Containers/MainContainer';
 
-export default class ChatPage extends Component {
-  constructor() {
+
+class ChatPage extends Component {
+  constructor(props) {
     super();
     this.state = {
-      messages: [{name: 'louie', text: 'Please ask me question.'}],
+      messages: props.conversation,
       text: '',
     }
   }
@@ -80,3 +82,5 @@ export default class ChatPage extends Component {
       </div>;
   }
 };
+
+export default MainContainer(ChatPage);

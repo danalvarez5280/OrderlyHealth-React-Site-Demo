@@ -5,6 +5,13 @@ export const addMed = (medication) => {
   };
 };
 
+export const addChat = (dialogue) => {
+  return {
+    type: "ADD_CHAT",
+    dialogue
+  };
+};
+
 export const login = (user) => {
   return {
     type: "LOGIN",
